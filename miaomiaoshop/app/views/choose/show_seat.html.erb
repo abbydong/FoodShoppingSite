@@ -1,0 +1,84 @@
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<h1 class="page-title">选择数量：</h1>
+
+		<style type="text/css" media="screen">
+			.box {
+				display:none;
+			}
+			body {
+				text-align:center; 
+			}
+
+			table {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+		</style>
+
+		<script type="text/javascript" charset="utf-8">
+			function change(obj){
+				if(obj.src.indexOf('pink3.gif') != -1)
+					obj.src = obj.src.replace('pink3.gif','green.jpg');
+				else if(obj.src.indexOf('green.jpg') != -1)
+					obj.src = obj.src.replace('green.jpg','pink3.gif');
+			}
+
+</script>
+
+<% if flash[:alert] %>
+	<p id="notice"><%= flash[:alert] %></p> 
+<% end %>
+
+<%= form_tag ensure_order_url do %>
+	<table class='table'>
+
+		<tr>
+			<td></td>
+			<% for j in 1..10 do %>
+
+			<% end %>
+		</tr>
+		<% for i in 1..10 do %>
+			<tr>
+
+				<% for j in 1..10 do %>
+					<td>
+						<!--% if @position[i][j] == true %-->
+						<label>
+							<img src = "/images/green.jpg" onclick="change(this)">
+							<input type='checkbox' class = 'box' value = <%=@ticketids[i][j]%> name = 'ids[]'>
+						</label>
+						<!--% else %-->
+						<!--img src = "/images/red.gif"-->
+						<!--% end %-->
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<%= submit_tag "确认购买", :class=>'button2' %>
+
+<% end %>
+</li>
+	</ul>
+</div>
+

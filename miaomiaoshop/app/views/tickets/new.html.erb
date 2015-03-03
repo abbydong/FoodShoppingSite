@@ -1,0 +1,53 @@
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<h1 class="page-title">添加商品其他信息</h1>
+
+
+		<%= form_for(@ticket) do |f| %>
+			<% if @ticket.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+					<ul>
+						<% @ticket.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+
+			<div class="field">
+				<%= f.label :film_id, '选择商品' %><br />
+				<select id="ticket_film_id" name="ticket[film_id]" > 
+					<% @films.each do |film| %>
+						<option value= <%= film.id %> ><%= film.title %></option>
+					<% end %>
+				</select>
+			</div>
+			<div class="field">
+				<%= f.label :time, '保质期至' %><br />
+				<%= f.datetime_select :time %>
+			</div>
+			<div class="field">
+				<%= f.label :room, '规格' %><br />
+				<%= f.number_field :room %>
+			</div>
+			<div class="field">
+				<%= f.label :price, '单价' %><br />
+				<%= f.text_field :price %>
+			</div>
+			<div class="actions">
+				<%= f.submit '确认添加' %>
+			</div>
+		<% end %>
+		<%= link_to '返回', tickets_path %>
+		</li>
+		</ul>
+	</div>
+

@@ -1,0 +1,53 @@
+<!-- BEGIN .section -->                                                                                                                                                          
+<div class="section">                                                                                                                                                    
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<%= form_for(@film) do |f| %>
+			<% if @film.errors.any? %>
+				<div id="error_explanation">
+					<h2><%=@film.errors.count %>个错误被发现，请重新填写！ </h2>
+
+					<ul>
+						<% @film.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<!-- BEGIN .blog-content -->
+			<div class="blog-content clearfix">
+				<div class="field">
+					<%= f.label :title, '商品名称' %><br />
+					<%= f.text_field :title %>
+				</div>
+				<div class="field">
+					<%= f.label :director, '单价' %><br />
+					<%= f.text_field :director %>
+				</div>
+				<div class="field">
+					<%= f.label :country, '产地' %><br />
+					<%= f.text_field :country %>
+				</div>
+				<div class="field">
+					<%= f.label :length, '数量' %><br />
+					<%= f.number_field :length %>
+				</div>
+				<div class="field">
+					<%= f.label :time, '生产日期' %><br />
+					<%= f.date_select :time %>
+				</div>
+				<div class="field">
+					<%= f.label :description, '简介' %><br />
+					<%= f.text_area :description %>
+				</div>
+				<div class="actions">
+					<%= f.submit :value=>"提交" ,:class=>"button2"%>
+				</div>
+			</div>
+		<% end %>
+		</li>
+	</ul>
+</div>

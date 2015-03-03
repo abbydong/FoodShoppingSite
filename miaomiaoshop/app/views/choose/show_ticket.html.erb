@@ -1,0 +1,39 @@
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<h1 class="page-title">选择规格</h1>
+		<div class="blog-title clearfix">
+			<div class="fl">
+				<h2><%= @film.title %></h2>
+			</div>
+		</div>
+
+		<div class="blog-content clearfix">
+			<div class="block-img1"><%= image_tag '/images/'+@film.title+'.jpeg' %></div>
+			<table class="table table-bordered">
+				<tr>
+					<th>保质期至</th>
+					<th>商品规格</th>
+					<th>商品单价</th>
+					<th></th>
+				</tr>
+				<% @ticket_groups.each do |t,ticket_group| %>
+					<% tkt = ticket_group.first %>
+					<tr>
+						<td><%= tkt.time %></td>
+						<td><%= tkt.room %>克</td>
+						<td><%= tkt.price %>元</td>
+						<td><%= link_to '我要购买', 
+							show_seat_url(:begin=>tkt.id,:end=>ticket_group.last.id,:class=>"button2")%></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		</li>
+	</ul>
+
+</div>

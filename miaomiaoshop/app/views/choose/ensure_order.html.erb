@@ -1,0 +1,19 @@
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+		<h1 class="page-title">欢迎来到或或网上银行</h1>
+		<div class="blog-content clearfix">
+			<%= @tt %>
+			<table class='table'>
+				<% @order.order_lines.each do |line| %>
+				<% end %>
+						根据您的积分，优惠后总价：<%=@order.price%>元
+				</table>
+				<%= link_to("确认付款",{:controller=>"choose",:action=>"payforme"},:class=>"button2")%>
+		</div>
+		</li>
+	</ul>
+</div>

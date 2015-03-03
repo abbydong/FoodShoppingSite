@@ -1,0 +1,42 @@
+<!-- BEGIN .section -->                                                                                                                                                          
+<div class="section">                                                                                                                                                    
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<h2 class="page-title">所有商品</h2>
+		<% cnt = 0 %>
+		<% @films.each do |film| %>
+			<% if cnt % 2 == 0 %>
+			<% end %>
+			<div class="blog-title clearfix">
+				<div class="fl">
+					<h3><%= film.title %></h3>
+				</div>
+
+				<div class="comment-count fr">
+					<h3><%= film.length %></h3>
+					<div class="comment-point"></div>
+				</div>
+			</div>
+
+			<!-- BEGIN .blog-content -->
+			<div class="blog-content clearfix">
+				<div class="block-img1"><%= image_tag '/images/'+film.title+'.jpeg' %></div>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc mi, ultricies eget aliquet interdum, dapibus in arcu. Praesent facilisis congue nu    lla vitae se    mper. Aenean vel euismod nibh. Morbi euismod, elit ut ornare varius, ipsum nisi tristique nisi, at volutpat odio leo sit amet justo. Nulla facilisi. Donec sed elit n    eque. Cu    rabitur a nisi nunc. Cras fermentum auctor vulputate.</p>
+				<p><%= link_to '详细信息', film, :class=>"button2" %></p>
+				<%= link_to '我要购买', show_ticket_url(:id=>film.id), :class=>"button2" %>
+				<!-- END .blog-content -->
+			</div>
+
+		<%end%>
+		</li>
+	</ul>
+	</div>
+
+	<% if cnt % 2 == 1 %>
+<% end %>
+<% cnt += 1 %>

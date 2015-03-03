@@ -1,0 +1,34 @@
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<h1 class="page-title">现有种类</h1>
+
+		<table class="table table-bordered">
+			<tr>
+				<th>商品名称</th>
+				<th>保质期至</th>
+				<th>规格</th>
+				<th>单价</th>
+			</tr>
+			<% @ticket_groups.each do |t,ticket_group| %>
+				<% tkt = ticket_group.first %>
+				<tr>
+					<td><%= tkt.film.title %></td>
+					<td><%= tkt.time %></td>
+					<td><%= tkt.room %>克</td>
+					<td><%= tkt.price %>元</td>
+				</tr>
+			<% end %>
+		</table>
+
+		<br />
+
+		<%= link_to '添加其他规格', new_ticket_path , :class=>"button2" %>
+
+		</li>
+	</ul>
+</div>

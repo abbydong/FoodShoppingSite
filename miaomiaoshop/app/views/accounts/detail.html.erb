@@ -1,0 +1,76 @@
+<!-- BEGIN .section -->
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+		<div class="blog-title clearfix">
+			<div class="fl">
+				<h2 >我的账户</h2>
+			</div>
+		</div>
+
+
+
+		<% if flash[:alert] %>
+			<p id="notice"><%= flash[:alert] %></p> 
+		<% end %>
+
+		<div class="blog-content clearfix">
+			<table class="table table-striped">
+				<tr>
+					<td>用户名</td>
+					<td>积分</td>
+					<td>余额</td>
+				</tr>
+				<tr>
+					<td><%= @account.username %></td>
+					<td><%= @account.score %></td>
+					<td><%= @account.balance %></td>
+				</tr>
+			</table>
+		</div>
+		<div class="blog-title clearfix">
+			<div class="fl">
+				<h2>订单记录</h2>
+			</div>
+		</div>
+		<div class="blog-content clearfix">
+			<table class='table'>
+				<tr>
+					<th>
+						商品名称
+					</th>
+					<th>
+						商品规格
+					</th>
+					<th>
+						购买个数
+					</th>
+					<th>
+						总花费
+					</th>
+				</tr>
+				<% @account.orders.each do |order| %>
+					<tr>
+						<td>
+							<%= order.order_lines.first.ticket.film.title %>
+						</td>
+						<td>
+							<%= order.order_lines.first.ticket.room %>
+						</td>
+						<td>
+							<%= order.order_lines.size %>
+						</td>
+						<td>
+							<%= order.price %>
+						</td>
+					</tr>
+				<% end %>
+
+			</table>
+		</div>
+		</li>
+	</ul>
+</div>

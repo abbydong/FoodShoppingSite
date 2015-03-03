@@ -1,0 +1,28 @@
+<div class="section">
+
+	<ul class="columns-content page-content clearfix">
+
+		<!-- BEGIN .col-main -->
+		<li class="col-main">
+
+		<% if flash[:alert] %>
+			<p id="notice"><%= flash[:alert] %></p> 
+		<% end %>
+
+		<%= form_tag do %> 
+			<fieldset>
+				<h2 class="page-title">请登录</h2>
+				<div class="field">
+					<%= label_tag :name, '用户名' %>
+					<%= text_field_tag :name, params[:name] %>
+				</div>
+				<div class="field">
+					<%= label_tag :password, '密码' %>
+					<%= password_field_tag :password, params[:password] %>
+				</div>
+				<div class="field">
+					<%= submit_tag "登录" %> 
+				</div>
+			</fieldset> 
+		<% end %>
+	</div>
